@@ -1,0 +1,58 @@
+Hulu for Chrome plugin.video.huluchrome setup instructions for Windows 7 or 8 Operating Systems
+Install Chrome
+Install Google Chrome browser, if not already installed. Download is at: https://www.google.com/intl/en/chrome/browser/
+Run the Chrome browser and goto the hulu website at:  http://www.hulu.com . Login or create a new Hulu account and leave the account logged in.
+Exit the chrome browser. NOTE: do not have the Chrome browser open when running XBMC - the wrong tab or user will be used and the video will not be visible.
+
+Install plugin.video.huluchrome addon
+Download and install plugin.video.huluchrome from https://www.github.com/learningit/plugin.video.huluchrome
+
+Install (or edit existing) playercorefactory.xml
+In the resources folder of the plugin.video.huluchrome.zip is an example playercorefactory.xml which looks like this:
+<playercorefactory>
+  <players>
+
+    <player name="HULUPLAYER" type="ExternalPlayer" audio="false" video="true">
+      <filename>C:\Program Files (x86)\Google\Chrome\Application\chrome.exe</filename>
+      <args>--new-window --window-position=0,0 --child-clean-exit --kiosk "{1}"</args>
+      <hidexbmc>true</hidexbmc>
+      <hideconsole>false</hideconsole>
+      <warpcursor>none</warpcursor>
+    </player>
+
+  </players>
+
+
+  <rules action="prepend">
+
+    <rule filename="http://www.hulu.com*" player="HULUPLAYER"/>
+
+  </rules>
+</playercorefactory>
+
+This example will have XBMC play any hulu videos using the Chrome browser .
+The playercorefactory.xml should be placed in the XBMC userdata folder. If playercorefactory.xml already exists, edit the current one to include the player definition and rule for it given above.
+If your chrome.exe is installed in a different directory than C:\Program Files (x86)\Google\Chrome\Application\ modify the <filename> field to the correct directory for your chrome installation.
+The --window-position parameter may be modified to play on a second monitor, set the position beyond the dimensions of the primary monitor. In my case I set --window-position=1930,100.
+A list of command line parameters for chrome can be found at: http://peter.sh/experiments/chromium-command-line-switches/ .
+Additional information about playercorefactory.xml may be found at: http://wiki.xbmc.org/?title=External_players .
+
+Configure plugin.video.huluchrome
+From the XBMC video addons directory listing, right click  (or press 'C') on  the Hulu for Chrome addon and choose "Add-on settings".
+Click on Hulu Login. Select "Enable Hulu Login" and enter your Hulu account email and password, then click on OK to save.
+If you have logged into your Hulu account in the Chrome browser, your history and other parameters will be maintained. More importantly, you will experience far less commercial ads and will be able to start viewing a previously watched video where you stopped it.
+If you don't use a Hulu account or logout  of the account on the Chrome browser, a movie or TV show will always start from the beginning.
+The Hulu for Chrome addon should now be configured to run.
+
+Player Notes
+When a video is playing in the Chrome player, the following keys are available:
+      Ctrl+Shift+Q = quit back to XBMC (if you exit in any other way your next session will display a Restore Session infobar which is annoying)
+For the following keys, the chrome window must be in focus by running the mouse cursor over it until the command bar appears:
+     space bar = pause/play
+    cursor up/down = volume up/down
+    cursor left/right = go back/forward 10 secs?
+    clicking on the time bar advances video to that point
+    clicking on time remaining toggles to display time played (and vice versa)
+    clicking on the settings cog allows you to select captions (subtitles) on/off, captions font, video quality 
+
+
