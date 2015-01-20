@@ -28,7 +28,7 @@
 	<!-- Streaming -->
 	<category label="30103">
 		<setting type="sep" />
-		<setting id='queueremove' type ="bool" label="30046" default="false"/>
+		<setting id="usekioskmode" type="bool" label="30124" default="true"/>
 		<setting type="sep" />
 		<setting id="us_proxy_enable" type="bool" label="30042" default="false"/>
 		<setting id="us_proxy" type="text" label="30040" default=""/>

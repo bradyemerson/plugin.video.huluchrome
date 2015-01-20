@@ -69,8 +69,6 @@ if not os.path.exists(subtitlepath):
 
 COOKIEFILE = os.path.join(datapath,'hulu-cookies.lwp')
 QUEUETOKEN = os.path.join(datapath,'token.xml')
-ADCACHE = os.path.join(datapath,'ad.xml')
-SMILCACHE = os.path.join(datapath,'smil.xml')
 cachepath = datapath
 WARNING = os.path.join('warning')
 
@@ -89,9 +87,9 @@ if os.path.isfile(WARNING):
 settings={}
 handle = int(sys.argv[1])
 
-settings['chrome_file_source'] = addoncompat.get_setting("chrome_file_source")
 settings['queueremove'] = addoncompat.get_setting("queueremove")
 settings['proxy_enable'] = addoncompat.get_setting('us_proxy_enable')
+settings['usekioskmode'] = addoncompat.get_setting('usekioskmode')
 #per page settings
 page = ['25','50','100','250','500','1000','2000']
 perpage = int(addoncompat.get_setting("perpage"))
